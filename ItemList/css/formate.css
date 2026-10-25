@@ -1,0 +1,112 @@
+/* Grundlayout */
+BODY {background-color:#000000; color:FFFFFF; font-size:10pt; font-family: 'palatino linotype', arial, verdana;}
+.error {color:#FFFFFF}
+.timer {font-size:8pt; color:#909090;text-align:center}
+.error2{color:#FF0000; font-size:10pt; font-weight:bold}
+.title {font-family: nosfer,nosferatu, 'palatino linotype', arial, verdana;}
+.titlezu {font-family: 'palatino linotype', arial, verdana;}
+
+
+/*Die Buttons*/
+.back {border-width:6px; border-color:#BBCCAA; border-style:ridge; padding:2px;background-color:#202020;padding-left: 10px;padding-right: 10px;}
+.sets {border-width:6px; border-color:#BBCCAA; border-style:ridge; padding:2px;background-color:#202020;padding-left: 10px;padding-right: 10px;}
+.uniques {border-width:6px; border-color:#BBCCAA; border-style:ridge; padding:2px;background-color:#202020;padding-left: 10px;padding-right: 10px;}
+.rw {border-width:6px; border-color:#BBCCAA; border-style:ridge; padding:2px;background-color:#202020;padding-left: 10px; padding-right: 10px; font-weight:bold;}
+
+/*Standart - Links*/
+a:link {text-decoration:none;color:#FFFFFF;}
+a:visited {text-decoration:none;color:#FFFFFF;}
+a:hover {text-decoration:none;color:#FF0000;}
+a:active {text-decoration:none;}
+a:focus {text-decoration:none;}
+
+
+/*Rest wo auch immer der alles gebraucht wird*/
+ul {margin-top:0px;margin-bottom:0px;}
+.itemname {color:#666633;font-size:12pt;text-align:center}
+.itemtype {color:#DDDDDD;font-size:10pt;text-align:center}
+.itematt {color:#5080DD;font-size:10pt;text-align:center}
+.weiss {color:#FFFFFF;font-size:10pt;}
+.gruen {color:#33CC33;font-size:10pt;}
+.gold {color:#777744;font-size:10pt;}
+.setbonus {font-size:14pt;font-weight:bold;font-family:arial;color:#777744;text-decoration:underline;margin-bottom:8px;}
+.setteile {font-size:11pt;color:#777744;}
+.rune {color:#BBBBBB;font-size:10pt;;}
+.counter {font-size:10pt; color:#BBBBBB;}
+.description {color:#FFFFFF}
+td {font-size:10pt;}
+
+/*Speziel fýr Uniques */
+.uniimage {border-width:6px; border-color:#604000; border-style:ridge; background-color:#000000; margin-right:10px;} /*Hintergrundfarbe, Rahmen und Abstand nach rechts bei den Bildern fýr die Uniques*/
+.unititle {font-size:14pt; font-weight:bold; color:#888855; } /*ýberschrift der Uniques*/
+.unitype  {font-size:10pt; color:#DDDDDD; font-style:italic; } /*Uniques Grundtype und default Eigenschaftn*/
+.uniattr  {font-size:10pt; color:#5080DD;}
+
+/*Speziel fýr Gems */
+.gemstablehead { font-size:10pt; font-weight:bold; color:#EEEEEE; background-color:#202020; }
+.gemsbild      { font-size:8pt; font-style:italic; color:#FFFFFF; vertical-align:middle; text-align:center}
+.gemslevreq	   { font-size:10pt;; color:#FFFFFF; vertical-align:middle; text-align:center; }
+.gemsmodsweap  { font-size:8pt; color:#FFFFFF; vertical-align:middle; text-align:left; }
+.gemsmodsarmo  { font-size:8pt; color:#FFFFFF; vertical-align:middle; text-align:left; }
+.gemsmodsshie  { font-size:8pt; color:#FFFFFF; vertical-align:middle; text-align:left; }
+
+/*Speziel fýr RuneWords */
+a.runelink:link {text-decoration:none;font-size:8pt;}
+a.runelink:visited {text-decoration:none;font-size:8pt;}
+a.runelink:hover {text-decoration:none;color:#FF0000; font-size:8pt;}
+a.runelink:active {text-decoration:none;font-size:8pt;}
+a.runelink:focus {text-decoration:none;font-size:8pt;}
+.runehead { font-size:10pt; font-weight:bold; color:#EEEEEE; background-color:#202020; text-align:center;}
+a.runediscription:link {text-decoration:none;color:#FF0000;font-size:8pt;}
+a.runediscription:visited {text-decoration:none;color:#FF0000;font-size:8pt;}
+a.runediscription:hover {text-decoration:none;color:#FF0000;font-size:8pt;}
+a.runediscription:active {text-decoration:none;font-size:8pt;}
+a.runediscription:focus {text-decoration:none;font-size:8pt;}
+td.runeiteminfo {width:25%; font-size:10pt; text-align:center;}
+.runeitemname {font-size:11pt; color:DDCC20;}
+.runelevel {font-size:8pt; color:CCCCCC; }
+.runeitemsallow {font-size:9pt; color:#BBBBBB; }
+td.runeneedruns {width:25%; font-size:10pt; text-align:center;}
+.runerunename {font-size:8pt; color:#DD3030; font-weight:bold; }
+.runeanzsoc {font-size:8pt; color:#909090; }
+.runeattributes {font-size:9pt; color:#6090DD; width:50%; }
+.runeruneattributes {font-size:9pt; color:#000000; }
+.description {font-size:8pt; color:#CC5040; }
+
+
+/*Speziel fýr Cube */
+.iwerte      {color:#4070EE; margin-left:10px}              /*The Attributes of the Items*/                             /*The Items*/
+.itemsz      {color:#404040; font-style:italic;}            /*The Items additions*/
+.headline    {color:DDDDBB;font-weight:bold;text-decoration:underline;}      /*The Headline for the Table*/
+.set         {color:#000000} /*Itemcolor when the addition is a set*/
+.crf         {color:#000000} /*Itemcolor when the addition is a craft*/
+.mag         {color:#000000} /*Itemcolor when the addition is a magic*/
+.uni         {color:#000000} /*Itemcolor when the addition is a unique*/
+.rar         {color:#000000} /*Itemcolor when the addition is a rare*/
+.tmp         {color:#000000} /*Itemcolor when the addition is a tempert*/
+.eth         {color:#000000} /*Itemcolor when the addition is a ethereal*/
+.ass         {color:#FF0000} /*Color for Assassin only*/
+.dru         {color:#FF0000} /*Color for Druid only*/
+.sor         {color:#FF0000} /*Color for Sorceress only*/
+.pal         {color:#FF0000} /*Color for Paladin only*/
+.bar         {color:#FF0000} /*Color for Barbarian only*/
+.ama         {color:#FF0000} /*Color for Amazon only*/
+.nec         {color:#FF0000} /*Color for Necromancer only*/
+.diff        {color:#FF0000} /*Color for severity*/
+.day         {color:#FF0000} /*Color for Works only on day*/
+table.cubetable {text-align:center; margin:0 auto; width:100%;}
+td.cubetableleft {text-align:center; font-size:10pt; font-weight:bold; color:#DDCC20; background-color:#252525; width:40%; border-width:1px; border-color:#000000; border-style:solid; }
+td.cubetableright {text-align:center; font-size:10pt; font-weight:bold; color:#DDCC20; background-color:#252525; width:40%; border-width:1px; border-color:#000000; border-style:solid; }
+td.cubeinput {text-align:left; font-size:9pt; color:#000000; background-color:#DDDDDD; border-width:1px; border-color:#000000; border-style:solid; padding-left: 5px }
+td.cubeoutput {text-align:left; font-size:9pt; color:#000000; background-color:#DDDDDD; border-width:1px; border-color:#000000; border-style:solid; padding-left: 5px }
+td.cubesubheadline {text-align:center; font-size:10pt; font-weight:bold; color:#DDCC20; background-color:#252525; border-width:1px; border-color:#000000; border-style:solid;}
+
+a.cubesub1 {margin-left:15px; text-decoration:none;}
+a:link.cubesub1 {color:#AAAA00;}
+a:visited.cubesub1 {color:#BBAA00;}
+a:hover.cubesub1 {color:#FF0000;}
+
+a.cubesub2 {margin-left:30px; text-decoration:none;}
+a:link.cubesub2 {color:#20BB20;}
+a:visited.cubesub2 {color:#20BB20;}
+a:hover.cubesub2 {color:#FF0000;}
