@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    image: ghcr.io/teruncius/chaos-empire-browser:latest
+    ports:
+      - "8080:80"
