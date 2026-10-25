@@ -39,20 +39,41 @@ export const runes: Rune[] = data.runes
 
 export const runeByName = new Map(runes.map((r) => [r.name, r]))
 
-export const slotLabels: Record<Slot, string> = { weapon: 'Weapons', armor: 'Armors', shield: 'Shields' }
+export const slotLabels: Record<Slot, string> = {
+  weapon: 'Weapons',
+  armor: 'Armors',
+  shield: 'Shields',
+}
 
 const ARMOR = ['armo', 'helm', 'circ', 'barb', 'drui', 'tors']
 const SHIELD = ['shld', 'pala', 'necr']
 
-const slotOf = (code: string): Slot => (SHIELD.includes(code) ? 'shield' : ARMOR.includes(code) ? 'armor' : 'weapon')
+const slotOf = (code: string): Slot =>
+  SHIELD.includes(code) ? 'shield' : ARMOR.includes(code) ? 'armor' : 'weapon'
 
 /** The slots a runeword can be socketed into, which decides which rune mods apply. */
 export const runewordSlots = (runeword: Runeword) =>
-  (['weapon', 'armor', 'shield'] as const).filter((slot) => runeword.items.some((code) => slotOf(code) === slot))
+  (['weapon', 'armor', 'shield'] as const).filter((slot) =>
+    runeword.items.some((code) => slotOf(code) === slot),
+  )
 
 export const itemLabel = (code: string) => itemTypes.find((t) => t.code === code)?.label ?? code
 
-const MELEE = ['club', 'hamm', 'mace', 'swor', 'axe', 'scep', 'staf', 'wand', 'pole', 'h2h', 'spea', 'aspe', 'dham']
+const MELEE = [
+  'club',
+  'hamm',
+  'mace',
+  'swor',
+  'axe',
+  'scep',
+  'staf',
+  'wand',
+  'pole',
+  'h2h',
+  'spea',
+  'aspe',
+  'dham',
+]
 
 /**
  * Broader item categories that also cover an item type, based on the legend in runewords.html,
@@ -78,7 +99,8 @@ const PARENTS: Record<string, string[]> = {
 
 /** Whether a runeword can be put into the given item type. */
 export const fitsItem = (runeword: Runeword, code: string, includeParents: boolean) =>
-  runeword.items.includes(code) || (includeParents && (PARENTS[code] ?? []).some((p) => runeword.items.includes(p)))
+  runeword.items.includes(code) ||
+  (includeParents && (PARENTS[code] ?? []).some((p) => runeword.items.includes(p)))
 
 export const levelBounds = [
   Math.min(...runewords.map((r) => r.level)),
@@ -93,7 +115,10 @@ export const allRunes = [...new Set(runewords.flatMap((r) => r.runes))].sort()
 export const attributeKeys = [
   ...runewords
     .flatMap((r) => [...new Set(r.attributes.map((a) => a.key))])
-    .reduce((counts, key) => counts.set(key, (counts.get(key) ?? 0) + 1), new Map<string, number>()),
+    .reduce(
+      (counts, key) => counts.set(key, (counts.get(key) ?? 0) + 1),
+      new Map<string, number>(),
+    ),
 ]
   .map(([key, count]) => ({ key, count }))
   .sort((a, b) => b.count - a.count || a.key.localeCompare(b.key))

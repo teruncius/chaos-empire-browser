@@ -63,12 +63,16 @@ const itemOptions = [...itemTypes]
   .sort((a, b) => a.label.localeCompare(b.label))
   .map((t) => ({ value: t.code, label: t.label }))
 
-const attributeOptions = attributeKeys.map(({ key, count }) => ({ value: key, label: `${key} (${count})` }))
+const attributeOptions = attributeKeys.map(({ key, count }) => ({
+  value: key,
+  label: `${key} (${count})`,
+}))
 
 let nextAttributeId = 1
 
 function FilterPanel({ filters, onChange }: { filters: Filters; onChange: (f: Filters) => void }) {
-  const set = <K extends keyof Filters>(key: K, value: Filters[K]) => onChange({ ...filters, [key]: value })
+  const set = <K extends keyof Filters>(key: K, value: Filters[K]) =>
+    onChange({ ...filters, [key]: value })
   const setAttribute = (id: number, patch: Partial<AttributeFilter>) =>
     set(
       'attributes',
@@ -192,7 +196,12 @@ function FilterPanel({ filters, onChange }: { filters: Filters; onChange: (f: Fi
         <Button
           variant="light"
           size="xs"
-          onClick={() => set('attributes', [...filters.attributes, { id: nextAttributeId++, key: null, min: null }])}
+          onClick={() =>
+            set('attributes', [
+              ...filters.attributes,
+              { id: nextAttributeId++, key: null, min: null },
+            ])
+          }
         >
           + Add attribute filter
         </Button>
@@ -227,7 +236,14 @@ function RunewordCard({
 
       <Group gap={4} mb={4}>
         {runeword.runeImages.map((img, i) => (
-          <Image key={i} src={`/runes/${img}`} alt={runeword.runes[i]} w={28} h={28} fit="contain" />
+          <Image
+            key={i}
+            src={`/runes/${img}`}
+            alt={runeword.runes[i]}
+            w={28}
+            h={28}
+            fit="contain"
+          />
         ))}
         <Text size="sm" ml={6}>
           {runeword.runes.join(' + ')}
@@ -249,7 +265,12 @@ function RunewordCard({
         {runeword.attributes.map((a, i) => {
           const highlighted = attributeFilters.some((af) => af.key && matchesAttribute(a, af))
           return (
-            <Text key={i} size="sm" c={highlighted ? 'orange.3' : 'blue.2'} fw={highlighted ? 700 : 400}>
+            <Text
+              key={i}
+              size="sm"
+              c={highlighted ? 'orange.3' : 'blue.2'}
+              fw={highlighted ? 700 : 400}
+            >
               {a.text}
             </Text>
           )
@@ -351,7 +372,10 @@ export default function App() {
           ) : (
             <SimpleGrid cols={{ base: 1, sm: 2, xl: 3 }}>
               {results.map((r) => (
-                <RunewordCard key={r.name} runeword={r} attributeFilters={filters.attributes}
+                <RunewordCard
+                  key={r.name}
+                  runeword={r}
+                  attributeFilters={filters.attributes}
                   showRuneStats={showRuneStats}
                 />
               ))}
