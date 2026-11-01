@@ -238,7 +238,7 @@ function RunewordCard({
         {runeword.runeImages.map((img, i) => (
           <Image
             key={i}
-            src={`/runes/${img}`}
+            src={`${import.meta.env.BASE_URL}runes/${img}`}
             alt={runeword.runes[i]}
             w={28}
             h={28}
