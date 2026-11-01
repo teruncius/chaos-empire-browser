@@ -1,32 +1,47 @@
-# React + TypeScript + Vite
+# Chaos Empire Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A searchable browser for the runewords of Chaos Empire, a Diablo II mod. It lists all 169 runewords from the Chaos Empire 7.67 item list.
 
-Currently, two official plugins are available:
+**Live site:** https://teruncius.github.io/chaos-empire-browser/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Filter by name, level requirement, item type, socket count, runes and attributes. All filters are combined with AND.
+- Filter by attribute with an optional minimum value, e.g. at least 30% Increased Attack Speed. Matching attributes are highlighted.
+- Include broader item categories when filtering, so Swords also matches "Melee Weapons" and "All Weapons".
+- Show the mods each rune adds, per weapon, armor or shield slot.
+- Sort by level or name.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the Oxlint configuration
+The deployment builds with Node.js 24, so use that version locally too.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm ci
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+| Command                | Description                        |
+| ---------------------- | ---------------------------------- |
+| `npm run dev`          | Start the Vite dev server          |
+| `npm run build`        | Type-check and build to `dist`     |
+| `npm run preview`      | Serve the production build locally |
+| `npm run lint`         | Lint with Oxlint                   |
+| `npm run format`       | Format with oxfmt                  |
+| `npm run format:check` | Check formatting without writing   |
+
+The `justfile` also has `just run`, `just lint` (includes a type-check) and `just format`.
+
+## Data
+
+The app reads its data from `src/data/runes.json`, which is generated from the original item list in `ItemList`. To regenerate it:
+
+```sh
+node scripts/convert-runes.mjs
+```
+
+The script reads `ItemList/runewords.html` and `ItemList/gems.html`. It doesn't copy images, so the rune icons in `public/runes` have to be updated by hand.
+
+## Deployment
+
+Every push to `master` builds the app and deploys it to GitHub Pages through `.github/workflows/pages.yml`.
